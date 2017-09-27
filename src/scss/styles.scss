@@ -1,0 +1,83 @@
+// --------------------------------------------------------
+// Variables
+// --------------------------------------------------------
+
+
+// --------------------------------------------------------
+// Base styles
+// --------------------------------------------------------
+body, html {
+    background: $grey-dark;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+// --------------------------------------------------------
+// Navigation styles
+// --------------------------------------------------------
+.top-navbar {
+    position: fixed;
+    width: 100%;
+    height: $navbar-height;
+    z-index: 3;
+    .navbar-brand {
+        .navbar-item {
+            h1 {
+                color: #FFF;
+                font-weight: $weight-semibold;
+                font-size: 1.5rem;
+                margin-left: .5rem;
+            }
+        }
+    }
+}
+
+.left-navigationn {
+    position: absolute;
+    background: $grey-lighter;
+    width: 30%;
+    max-width: 300px;
+    margin: 5rem 0 1rem 1rem;
+    z-index: 2;
+    .panel-heading {
+        h2 {
+            font-weight: $weight-semibold;
+            i {
+                color: $danger
+            }
+        }
+        p {
+            font-size: 1rem;
+        }
+    }
+    .panel-block {
+        &.is-divider {
+            padding-bottom: 0;
+            h3 {
+                width: 100%;
+                font-weight: $weight-medium;
+                border-bottom: solid thin $grey;
+            }
+        }
+        button {
+            margin-left: auto;
+        }
+    }
+}
+
+// --------------------------------------------------------
+// Map styles
+// --------------------------------------------------------
+.map-container {
+    position: fixed;
+    padding-top: $navbar-height;
+    width: 100%;
+    height: 100%;
+    .map-canvas {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+

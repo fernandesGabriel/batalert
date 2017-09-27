@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Batalert | Wayne Corporation </title>
+		<meta name="author" content="Gabriel Agusto Fernandes">
+		<meta name="description" content="The official Batman Allert System">
+
+		<link rel="stylesheet" href="dist/css/app.css?v=1.0">
+
+		<!--[if lt IE 9]>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+		<![endif]-->
+
+	</head>
+
+	<body>
+
+        <!-- Top Navigation -->
+		<nav class="top-navbar navbar has-shadow is-dark" role="navigation" aria-label="main navigation">
+            <!-- Top Navigation Left -->
+            <div class="navbar-brand">
+				<div class="navbar-item">
+					<img src="assets/img/batlogo-small.png" alt="Batalert System">
+					<h1> Batalert </h1>
+				</div>
+            </div>
+            <!-- End Top Navigation Left -->
+
+            <!-- Top Navigation Right -->
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <div id="search-box"></div>
+                </div>
+            </div>
+            <!-- End Top Navigation Right -->
+		</nav>
+        <!-- End Top Navigation -->
+
+        <!-- Left Alert Box -->
+        <aside id="alert-box"></aside>
+        <!-- End Left Alert Box -->
+
+        <!-- Main Map -->
+		<section class="map-container">
+			<div id="map" class="map-canvas"></div>
+		</section>
+        <!-- End Main Map -->
+
+		<!-- Scripts -->
+		<script>
+
+            // globals vars and instances
+            window.mapLoaded = false;
+
+		</script>
+
+		<script defer src="dist/js/app.js"></script>
+
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBm46I-H41cA9JB9lBb1yxkU0yyhriUqLI&callback=setMapLoaded" async defer></script>
+
+		<script>
+
+            /*
+			 * Active map
+			 */
+            function setMapLoaded() {
+
+                //set map as loaded
+                window.mapLoaded = true;
+
+                // starts bootstrap
+                if (typeof window.bootstrap !== 'undefined') {
+                    window.bootstrap();
+                }
+
+            }
+
+		</script>
+		<!-- End Scripts -->
+
+	</body>
+
+</html>
