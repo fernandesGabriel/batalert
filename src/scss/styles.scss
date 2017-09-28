@@ -1,9 +1,4 @@
 // --------------------------------------------------------
-// Variables
-// --------------------------------------------------------
-
-
-// --------------------------------------------------------
 // Base styles
 // --------------------------------------------------------
 body, html {
@@ -31,15 +26,74 @@ body, html {
             }
         }
     }
+    .navbar-menu {
+        display: block;
+        padding: 0;
+        background: $grey-lighter;
+        @include desktop {
+            background: none;
+        }
+        .button .icon {
+            @include mobile {
+                width: auto;
+                height: auto;
+                margin: 0;
+            }
+        }
+    }
 }
 
 .left-navigationn {
     position: absolute;
     background: $grey-lighter;
-    width: 30%;
-    max-width: 300px;
-    margin: 5rem 0 1rem 1rem;
+    margin-top: 8.5rem;
     z-index: 2;
+    width: 14rem;
+    &.hidden-box {
+        margin-left: -14rem;
+        .navbar-burger {
+            position: fixed;
+            top: auto;
+            right: auto;
+            margin: 0 0 0 14rem;
+        }
+    }
+    @include tablet {
+        width: 17rem;
+        &.hidden-box {
+            margin-left: -17rem;
+            .navbar-burger {
+                position: fixed;
+                margin: 0 0 0 17rem;
+            }
+        }
+    }
+    @include desktop {
+        margin: 5rem 0 1rem 1rem;
+        width: 20rem;
+        &.hidden-box {
+            margin-left: 1rem;
+            .navbar-burger {
+                position: fixed;
+                margin: 0 0 0 20rem;
+            }
+        }
+    }
+    .navbar-burger {
+        background: $panel-heading-background-color;
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        top: -.5rem;
+        right: -2.4rem;
+        border-radius: 0;
+        &:hover {
+            background: $grey-lighter;
+        }
+        &:focus:not(:active) {
+            box-shadow: none;
+        }
+    }
     .panel-heading {
         h2 {
             font-weight: $weight-semibold;

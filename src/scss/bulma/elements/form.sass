@@ -1,7 +1,7 @@
 $input-color: $grey-darker !default
 $input-background-color: $white !default
 $input-border-color: $grey-lighter !default
-$input-shadow: inset 0 1px 2px rgba($black, 0.1) !default
+$input-shadow: none !default
 
 $input-hover-color: $grey-darker !default
 $input-hover-border-color: $grey-light !default
@@ -45,9 +45,6 @@ $help-size: $size-small !default
   background-color: $input-background-color
   border-color: $input-border-color
   color: $input-color
-  &:hover,
-  &.is-hovered
-    border-color: $input-hover-border-color
   &[disabled]
     background-color: $input-disabled-background-color
     border-color: $input-disabled-border-color
@@ -422,16 +419,6 @@ $help-size: $size-small !default
       .input,
       .select select
         border-radius: 0
-        &:hover,
-        &.is-hovered
-          z-index: 2
-        &:focus,
-        &.is-focused,
-        &:active,
-        &.is-active
-          z-index: 3
-          &:hover
-            z-index: 4
       &.is-expanded
         flex-grow: 1
     &.has-addons-centered
@@ -516,6 +503,8 @@ $help-size: $size-small !default
   font-size: $size-normal
   position: relative
   text-align: left
+  + .control
+    border-left: 1px solid $input-border-color
   // Modifiers
   // DEPRECATED
   &.has-icon

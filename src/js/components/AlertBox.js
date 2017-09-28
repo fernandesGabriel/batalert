@@ -5,6 +5,15 @@ import React from 'react';
 export default class AlertBox extends React.Component {
 
     /*
+     * Toggle AlertBox
+     */
+    togglesAlertBox() {
+
+        document.querySelectorAll('#alert-box .left-navigationn')[0].classList.toggle("hidden-box");
+
+    }
+
+    /*
     * Renders left navigation with alerts
     */
     render() {
@@ -16,7 +25,12 @@ export default class AlertBox extends React.Component {
         });
 
         return (
-            <div className="left-navigationn panel has-shadow">
+            <div className="left-navigationn panel has-shadow hidden-box">
+                <button className="button navbar-burger has-shadow" onClick={this.togglesAlertBox}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <AlertBoxHeader/>
                 <AlertBoxContentDivider title="Villain:"/>
                 <div id="villain-list">
@@ -106,12 +120,24 @@ class AlertBoxContentTargetItem extends React.Component {
 class AlertBoxTargetButton extends React.Component {
 
     /*
+    * Fire button actions
+    */
+    buttonActions() {
+
+        // hides alertbox
+        document.querySelectorAll('#alert-box .left-navigationn')[0].classList.add("hidden-box");
+
+        // displays direction on map
+        window.batalert.displayDirection(this.props.lat, this.props.lng, this.props.title)
+    }
+
+    /*
     * Renders alert box targets item
     */
     render() {
 
         return (
-            <button type="button" className="button is-danger is-outlined" onClick={() => window.batalert.displayDirection(this.props.lat, this.props.lng, this.props.title)}>
+            <button type="button" className="button is-danger is-outlined" onClick={() => this.buttonActions() }>
                 <i className="fa fa-crosshairs" aria-hidden="true"></i>
             </button>
         );

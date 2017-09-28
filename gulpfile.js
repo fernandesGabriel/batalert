@@ -63,14 +63,14 @@ gulp.task('base:styles', function(){
 
 gulp.task('base:scripts', ['commonjs-bundle']);
 
-gulp.task('clean-temp', function(){
-    return del(['dist/tmp']);
+gulp.task('clean-tmp', function(){
+    return del([config.baseBuildPath + 'tmp']);
 });
 
-gulp.task('es6-commonjs',['clean-temp'], function(){
+gulp.task('es6-commonjs',['clean-tmp'], function(){
     return gulp.src(['src/js/*.js','src/js/**/*.js'])
         .pipe(babel())
-        .pipe(gulp.dest('dist/tmp'));
+        .pipe(gulp.dest(config.baseBuildPath + 'tmp'));
 });
 
 gulp.task('bundle-commonjs-clean', function(){
@@ -78,10 +78,10 @@ gulp.task('bundle-commonjs-clean', function(){
 });
 
 gulp.task('commonjs-bundle',['bundle-commonjs-clean','es6-commonjs'], function(){
-    return browserify(['dist/tmp/app.js'])
+    return browserify([config.baseBuildPath + 'tmp/app.js'])
         .transform("babelify", {presets: ["es2015", "react"]})
         .bundle()
-        .pipe(source('src/js/app.js'))
+        .pipe(source(config.baseSrcPath + 'js/app.js'))
         .pipe(buffer())
         .pipe(rename('app.js'))
         .pipe(gulp.dest(config.baseBuildPath + 'js'));

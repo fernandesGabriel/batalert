@@ -45,26 +45,22 @@ export default class SearchBox extends React.Component {
 
         return (
             <div className="navbar-item">
-                <div className="field is-grouped">
+                <div className="field has-addons">
                     <div className="control">
-                        <div className="field has-addons">
-                            <div className="control">
-                                <input id="search-lat" name="lat" className="input" type="text" placeholder="Latitude" value={this.state.lat} onChange={this.bindAction} />
-                            </div>
-                            <div className="control">
-                                <input id="search-lng" name="lng" className="input" type="text" placeholder="Longitude" value={this.state.lng} onChange={this.bindAction} />
-                            </div>
-                            <div className="control">
-                                <button type="button" className="button is-warning"  onClick={this.searchAction}>
-                                    <span>
-                                        Find Villain
-                                    </span>
-                                    <span className="icon">
-                                        <i className="fa fa-location-arrow" aria-hidden="true"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
+                        <input id="search-lat" name="lat" className="input" type="text" placeholder="Latitude" value={this.state.lat} onChange={this.bindAction} />
+                    </div>
+                    <div className="control">
+                        <input id="search-lng" name="lng" className="input" type="text" placeholder="Longitude" value={this.state.lng} onChange={this.bindAction} />
+                    </div>
+                    <div className="control">
+                        <button type="button" className="button is-warning"  onClick={this.searchAction}>
+                            <span className="is-hidden-mobile">
+                                Find Villain
+                            </span>
+                            <span className="icon">
+                                <i className="fa fa-location-arrow" aria-hidden="true"></i>
+                            </span>
+                        </button>
                     </div>
                 </div>
             </div>
